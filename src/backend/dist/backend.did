@@ -1,0 +1,17 @@
+type Material = 
+ record {
+   content: text;
+   name: text;
+   owner: principal;
+ };
+service : {
+  countMaterialsByUser: (user: principal) -> (nat) query;
+  deleteMaterial: (name: text) -> ();
+  getContent: (name: text) -> (text) query;
+  getMaterial: (name: text) -> (Material) query;
+  getMaterialsByOwner: (owner: principal) -> (vec Material) query;
+  getOwner: (name: text) -> (principal) query;
+  listMaterials: () -> (vec Material) query;
+  updateContent: (name: text, newContent: text) -> ();
+  uploadMaterial: (name: text, content: text) -> ();
+}
